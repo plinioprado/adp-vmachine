@@ -1,0 +1,23 @@
+{
+  "name": "adp-vmachine",
+  "version": "1.0.0",
+  "description": "Vending machine and its tests",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jest --watch --coverage --verbose"
+  },
+  "keywords": [],
+  "author": "Plinio Prado",
+  "license": "ISC",
+  "devDependencies": {
+    "jest-cli": "^20.0.4"
+  },
+  "jest": {
+    "modulePathIgnorePatterns": [
+      "node_modules"
+    ]
+  }
+}
