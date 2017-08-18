@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1503026728147" clover="3.2.0">
-  <project timestamp="1503026728147" name="All files">
-    <metrics statements="8" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="1" elements="14" coveredelements="4" complexity="0" loc="8" ncloc="8" packages="1" files="1" classes="1">
+<coverage generated="1503029814562" clover="3.2.0">
+  <project timestamp="1503029814562" name="All files">
+    <metrics statements="11" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="2" elements="18" coveredelements="8" complexity="0" loc="11" ncloc="11" packages="1" files="1" classes="1">
       <file name="app.js" path="/Users/plinioprado/Desktop/iservmobi/dev/red/adp-vmachine/lib/app.js">
-        <metrics statements="8" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="1"/>
+        <metrics statements="11" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="2"/>
         <line num="2" count="1" type="stmt"/>
-        <line num="17" count="1" type="stmt"/>
-        <line num="21" count="0" type="stmt"/>
-        <line num="25" count="0" type="stmt"/>
-        <line num="29" count="0" type="stmt"/>
-        <line num="33" count="0" type="stmt"/>
-        <line num="37" count="0" type="stmt"/>
-        <line num="42" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="31" count="0" type="stmt"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="39" count="0" type="stmt"/>
+        <line num="44" count="1" type="stmt"/>
       </file>
     </metrics>
   </project>
