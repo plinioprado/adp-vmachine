@@ -133,6 +133,35 @@ describe('app', () => {
       expect(received).toEqual(expected)
     })
 
+    const mockCoins2 = {
+      '1': 1,
+      '5': 1,
+      '10': 1,
+      '25': 1,
+      '50': 1,
+      '100': 1,
+      '200': 1
+      }
+
+    it('load should be added in loaded cashier', () => {
+      app.resupplyChange(mockCoins2)
+      const received = app.printCashier()
+      const expected = {
+        code: 200,
+        coins: {
+          '1': 8,
+          '5': 7,
+          '10': 6,
+          '25': 5,
+          '50': 4,
+          '100': 3,
+          '200': 2
+          }
+      }
+      expect(received).toEqual(expected)
+    })
+
+
   })
 
   describe('should dispense inventory based on payment', () => {
