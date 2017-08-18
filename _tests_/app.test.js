@@ -8,11 +8,14 @@ describe('app', () => {
       expect(received).toBe(expected)
     })
 
-    describe('should print inventory', () => {
-
+    it('should print inventory', () => {
+      app.setDb()
+      const received = app.printInventory();
+      expect(received).toEqual([])
     })
 
     describe('should refill inventory', () => {
+      
 
     })
 
