@@ -9,11 +9,11 @@ describe('app', () => {
     const expected = {
       code: 200,
       products: {
-      '0': { name: 'item1', qt: 0 },
-      '1': { name: 'item2', qt: 0 },
-      '2': { name: 'item3', qt: 0 },
-      '3': { name: 'item4', qt: 0 },
-      '4': { name: 'item5', qt: 0 }
+      '0': { name: 'item1', price: 1.00, qt: 0 },
+      '1': { name: 'item2', price: 1.25, qt: 0 },
+      '2': { name: 'item3', price: 0.65, qt: 0 },
+      '3': { name: 'item4', price: 1.00, qt: 0 },
+      '4': { name: 'item5', proce: 3.00, qt: 0 }
       }
     }
     expect(received).toEqual(expected)
@@ -62,11 +62,11 @@ describe('app', () => {
       const expected = {
         code: 200,
         products: {
-        '0': { name: 'item1', qt: 10 },
-        '1': { name: 'item2', qt: 20 },
-        '2': { name: 'item3', qt: 30 },
-        '3': { name: 'item4', qt: 0 },
-        '4': { name: 'item5', qt: 0 }
+          '0': { name: 'item1', price: 1.00, qt: 10 },
+          '1': { name: 'item2', price: 1.25, qt: 20 },
+          '2': { name: 'item3', price: 0.65, qt: 30 },
+          '3': { name: 'item4', price: 1.00, qt: 0 },
+          '4': { name: 'item5', proce: 3.00, qt: 0 }
         }
       }
       expect(received).toEqual(expected)
@@ -83,11 +83,11 @@ describe('app', () => {
       const expected = {
         code: 200,
         products: {
-        '0': { name: 'item1', qt: 10 },
-        '1': { name: 'item2', qt: 20 },
-        '2': { name: 'item3', qt: 40 },
-        '3': { name: 'item4', qt: 20 },
-        '4': { name: 'item5', qt: 0 }
+          '0': { name: 'item1', price: 1.00, qt: 10 },
+          '1': { name: 'item2', price: 1.25, qt: 20 },
+          '2': { name: 'item3', price: 0.65, qt: 40 },
+          '3': { name: 'item4', price: 1.00, qt: 20 },
+          '4': { name: 'item5', proce: 3.00, qt: 0 }
         }
       }
       expect(received).toEqual(expected)
@@ -164,12 +164,91 @@ describe('app', () => {
 
   })
 
-  describe('should dispense inventory based on payment', () => {
-    
-  })
+  describe('sell', () => {
 
-  describe('should return change as coins (eg. $0.35 is 1 quarter and 1 dime)', () => {
-    
-  })
+    const mockSale = {
+      product: '1',
+      payment: {
+        '100': 1,
+        '50': 1
+      }
+    }
+
+    describe('when dispense inventory', () => {
+
+      it('should return ok if valid data', () => {
+        const received = app.saleDispense(mockSale)
+        expect(received).toEqual({ code: 200 })
+      })
+
+      it('should return error when invalid product', () => {
+        const received = app.saleDispense(
+            {
+              product: 'x',
+              payment: { '100': 1 }
+            }
+          )
+        expect(received.code).toEqual(400)
+      })
+
+      it('should return error when unavailbable product', () => {
+        const received = app.saleDispense(
+            {
+              product: '5',
+              payment: { '200': 1 }
+            }
+          )
+        expect(received.code).toEqual(400)
+      })
+
+      it('should return error when invalid coin', () => {
+        const received = app.saleDispense(
+            {
+              product: '1',
+              payment: { '33': 1 }
+            }
+          )
+        expect(received.code).toEqual(400)
+      })
+
+      it('should return error when insufficient money', () => {
+        const received = app.saleDispense(
+            {
+              product: '1',
+              payment: { '10': 1 }
+            }
+          )
+        expect(received.code).toEqual(400)
+      })
+
+    })
+
+    describe('when return change', () => {
+      
+      it('should return ok if valid data', () => {
+        const received = app.saleReturnChange(mockSale)
+        expect(received).toEqual({ code: 200 })
+      })
+
+    })
+
+    // describe('sale should dispense inventory then return change', () => {
+
+    //   app.saleDispense = jest.fn(() => true)
+    //   app.saleReturnChange = jest.fn(() => true)
+
+    //   it('should call dispense inventory', () => {
+    //     app.sell(mockSale)
+    //     expect(app.saleDispense).toHaveBeenCalled()
+    //   })
+  
+    //   it('then should call return change', () => {
+    //     app.sell(mockSale)
+    //     expect(app.saleReturnChange).toHaveBeenCalled()
+    //   })
+
+    // })
+
+  })  
 
 })
