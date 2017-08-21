@@ -13,3 +13,7 @@ Vending machine, with no interface, that does:
 
 Javascript ES6
 Testing in Jest
+
+# Test result\
+
+![Test results](https://github.com/plinioprado/adp-vmachine/raw/master/img/Screen%20Shot%202017-08-21%20at%2008.52.08.png)
