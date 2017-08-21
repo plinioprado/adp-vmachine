@@ -1,6 +1,8 @@
-const { app } = require('../lib/app')
+const { App } = require('../lib/app')
 
 describe('app', () => {
+
+  let app = new App
 
   it('should print empty inventory report when reset', () => {
 
@@ -157,7 +159,6 @@ describe('app', () => {
       expect(received).toEqual(expected)
     })
 
-
   })
 
   describe('sell', () => {
@@ -277,23 +278,6 @@ describe('app', () => {
       })
 
     })
-
-    // describe('sale should dispense inventory then return change', () => {
-
-    //   app.saleDispense = jest.fn(() => true)
-    //   app.saleReturnChange = jest.fn(() => true)
-
-    //   it('should call dispense inventory', () => {
-    //     app.sell(mockSale)
-    //     expect(app.saleDispense).toHaveBeenCalled()
-    //   })
-  
-    //   it('then should call return change', () => {
-    //     app.sell(mockSale)
-    //     expect(app.saleReturnChange).toHaveBeenCalled()
-    //   })
-
-    // })
 
   })  
 
